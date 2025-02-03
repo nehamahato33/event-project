@@ -10,8 +10,7 @@ const flash=require("connect-flash");
 const passport=require("passport");
 const localStrategy=require("passport-local");
 const User=require("./models/user.js"); 
-const Razorpay = require("razorpay");
-require("dotenv").config();
+
 
 
 const listingRouter = require("./routes/listing.js");
