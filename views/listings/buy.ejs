@@ -1,0 +1,60 @@
+<% layout("layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h2>Booking Details</h2>
+    <div class="card-body">   
+        <p class="card-text"><%= listing.description %></P>
+        <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
+        <p class="card-text"><%= listing.date %></p>
+        <p class="card-text"><%= listing.location %></p><br>
+    </div>
+  </div>
+
+  
+  <div class="row  offset-2">
+
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+      <div class="mb-3  col-md-4">
+        <label for="name" class="form-label">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      
+
+     
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="email" class="form-label">email</label>
+          <input
+            type="text"
+            class="form-control"
+          />
+        </div><div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="number" class="form-label">Phone number</label>
+            <input
+              type="number"
+              class="form-control"
+            />
+          </div>
+        
+       
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="number" class="form-label">No of tickets</label>
+          <input
+            type="number"
+            class="form-control"
+          />
+        </div>
+        
+    </form>
+   
+  </div>
+  <button class="btn btn-dark edit-btn mt-3 col-3">Continue to payment</button> <br><br><br>
+</div>
+
+

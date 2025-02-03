@@ -1,0 +1,89 @@
+
+<% layout("/layouts/boilerplate.ejs") -%>
+
+   
+    <!--<form method="GET" action="/listings/new">
+      <button>Create New Listing</button>
+    </form>-->
+ <style>
+ #filters{
+  display:flex;
+  flex-wrap:wrap;
+}
+.filter{
+  text-align:center;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  opacity: 0.75;
+}
+.filter:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.filter p{
+  font-size: 0.8rem;
+}
+
+ </style>
+
+    <div id="filters">
+      <div class="filter">
+       <div><i class="fas fa-film"></i></div> 
+        <p>Concerts & Shows </p>
+      </div>
+       <div class="filter">
+        <div><i class="fas fa-gamepad"></i></div> 
+         <p> Gaming Events </p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-utensils"></i></div> 
+         <p>Food Festival</p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-tshirt"></i></div> 
+         <p>Fashion Show</p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-chalkboard-teacher"></i></div> 
+         <p>Educational <br>Seminars </p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-hat-wizard"></i></div> 
+         <p> Magic Show </p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-futbol"></i></div> 
+         <p>Sports Events </p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-microphone"></i></div> 
+         <p> Stand-up Comedy</p>
+       </div>
+       <div class="filter">
+        <div><i class="fas fa-masks-theater"></i></div> 
+         <p> Theatre Play</p>
+       </div>  
+       
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+       <% for(let listing of allListings) { %>
+      <a href="/listings/<%=listing._id%>" class="listing-link">
+      <div class="card col listing-card">
+        <img src="<%= listing.image.url%>"
+         class="card-img-top"
+          alt="listing.image" 
+          style="height: 20rem;">
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+         
+          <p class="card-text"><b><%=listing.title %></b><br>
+            &#8377; <%= listing.price.toLocaleString("en-IN") %>/event<br>
+            
+          </p>
+          
+        </div>
+      </div>
+    </a>
+      <% } %>
+    </div>
